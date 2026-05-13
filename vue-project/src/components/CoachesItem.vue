@@ -1,35 +1,52 @@
-<script setup>
-import SelectButton from "primevue/selectbutton";
-import Button from "primevue/button";
+<script>
+import Button from 'primevue/button';
+import SelectButton from 'primevue/selectbutton';
 
-defineProps({
-  firstName: String,
-  lastName: String,
-  rate: Number,
-  areas: Array,
-});
+export default {
+  components: {
+    Button,
+    SelectButton
+  },
+
+  props: {
+    firstName: String,
+    lastName: String,
+    rate: Number,
+    areas: Array
+  },
+
+  computed: {
+    coach() {
+      return {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        rate: this.rate,
+        areas: this.areas
+      };
+    }
+  }
+}
 </script>
 
 <template>
   <base-card>
-  <router-link to="">
-      <div class="coach-item">
+    <router-link to="">
+      <div v-if="coach" class="coach-item">
         <div class="coach-info">
           <h2>{{ firstName }} {{ lastName }}</h2>
-  
+
           <h3>\${{ rate }}/hour</h3>
-  
+
           <SelectButton :modelValue="areas[0]" :options="areas" />
         </div>
-  
+
         <div class="actions">
-          <Button label="Contact" outlined />
-          <Button label="View Details" />
+          <router-link :to="`/${firstName.toLowerCase()}/contact`">
+            <Button label="Contact" outlined />
+          </router-link>
         </div>
       </div>
-
-
-  </router-link>
+    </router-link>
   </base-card>
 </template>
 

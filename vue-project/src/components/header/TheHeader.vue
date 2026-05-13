@@ -48,10 +48,6 @@ export default {
           label: "Requests",
           to: "/requests",
         },
-        {
-          label: "Help",
-          to: "/help",
-        },
       ],
     };
   },

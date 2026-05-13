@@ -24,6 +24,7 @@ export default createStore({
                     hourlyRate: 30,
                 },
             ],
+            requests : []
         };
     },
     getters: {
@@ -35,9 +36,16 @@ export default createStore({
             return state.coaches.filter(coach =>
                 coach.areas.includes('frontend')
             );
-        }
+        },
+        requests(state) {
+            return state.requests;
+          }
     },
-    mutations: {},
+    mutations: {
+        addRequest(state, payload) {
+            state.requests.push(payload);
+          }
+    },
     actions: {},
     modules: {},
 });

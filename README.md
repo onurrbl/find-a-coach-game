@@ -2,7 +2,7 @@
 
 This is Vue.js practice application. Thanks for Maximillan Schwarzmuller. Built with Vue 3
 
-#Vue 3, PrimeVUe, Vuex, Vue Router
+# Vue 3, PrimeVUe, Vuex, Vue Router
 
 
 ## Recommended IDE Setup
